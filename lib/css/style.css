@@ -1,0 +1,23 @@
+.display-contributors {
+	margin: 1% !important;
+	display:block !important;
+	height:auto;
+	width:100%;
+	background-color:#999999;
+}
+.display-contributor {
+	margin: 1% !important;
+}
+.display-contributor a img{
+		display: inline-block !important;
+}
+.display-contributor a{
+	font-weight:bolder;
+	color:#FFFFFF;
+	text-decoration: none  !important;
+	border: 0px  !important;
+}
+.display-contributor a:hover{
+	color:#000000;
+}
+
