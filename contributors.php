@@ -105,4 +105,3 @@ function add_after_post_content($content) {
 	$content .= "</div>";
 	return $content;
 }
-?>
