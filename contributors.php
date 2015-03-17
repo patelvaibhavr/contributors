@@ -9,7 +9,6 @@
  * Text Domain: http://vaibhavpatel.in/
  * License: GPL2
  */
-
 /*
  * Copyright 2014 - 2015 Vaibhav Patel (email : patelvaibhavr@yahoo.com)
  */
@@ -26,7 +25,6 @@ add_action ( 'wp_enqueue_scripts', 'contributors_script' );
 function contributors_script() {	
 	wp_enqueue_style ( 'contributors_style', plugins_url ( 'lib/css/style.css', __FILE__ ), array (), null, 'all' );
 }
-
 
 // Add Option in Setting Menu
 function contributors_menu() {
@@ -46,7 +44,6 @@ function add_contributors_meta_box_content() {
 	if ($contributors1 [0] != "") {
 		$contributors = explode ( ',', $contributors1 [0] );
 	}
-	
 	$login_user_id = get_current_user_id ();
 	$blogusers = get_users ();
 	
@@ -93,25 +90,19 @@ function add_after_post_content($content) {
 	
 	$contributors = get_post_meta ( $post->ID, 'contributors' );
 	$contributors = explode ( ',', $contributors [0] );
-	
 	$blogusers = get_users ();
-	
 	$content .= "<br/><div class='display-contributors'> <label><strong> List Of Contributors : </strong></label>";
 	
 	foreach ( $blogusers as $user ) {
 		$flag = 0;
-		
 		if (in_array ( $user->ID, $contributors )) {
 			$flag = 1;
 		}
-		
 		if ($flag == 1) {
 			$content .= "<span class='author vcard display-contributor'><a class='url fn n'  href='" . get_author_posts_url ( $user->ID ) . "' title='View all posts by " . esc_html ( $user->display_name ) . "' > " . get_avatar ( $user->ID, 32 ) . " " . esc_html ( $user->display_name ) . "</a></span> ";
 		}
 	}
-	
 	$content .= "</div>";
-	
 	return $content;
 }
 ?>
